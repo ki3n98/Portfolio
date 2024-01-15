@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Used Car Price Prediction</title>
+
+	<link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="img"></div>
+
+    <div id="flex-box">
+        <form class="form">
+    
+            <h2>Manufacturer</h2>
+            <select class="select-list" name="" id="uiManufacturer">
+                <option value="" disabled="disabled" selected="selected">Select a brand</option>
+                <option>Lexus</option>
+                <option>Huyndai</option>
+            </select>
+
+            <h2>Category</h2>
+            <select class="select-list" name="" id="uiCategory">
+                <option value="" disabled="disabled" selected="selected">Select a category</option>
+                <option>Sedan</option>
+                <option>Coup</option>
+            </select>
+
+            <h2>Gear Box</h2>
+            <select class="select-list" name="" id="uiGearbox">
+                <option value="" disabled="disabled" selected="selected">Select a category</option>
+                <option>Automatic</option>
+                <option>Manual</option>
+            </select>
+
+
+            <h2>Mileage (Miles)</h2>
+            <input type="number" class="area" type="text" id="uiMileage" class="floatLabel" name="Mileage" value="1000"/>
+
+            <h2>Age</h2>
+            <input type="number" class="area" type="text" id="uiAge" class="floatLabel" name="age" value="1"/>
+            
+            <h2>Airbags</h2>
+            <input type="number" class="area" type="text" id="uiAirbag" class="floatLabel" name="Airbags" value="5"/>
+
+            <h2>Leather Interior</h2>
+            <div class="switch-field">
+                <input type="radio" id="radio-leather-yes" name="uiLeather" value="1"/>
+                <label for="radio-leather-yes">Yes</label>
+                <input type="radio" id="radio-leather-no" name="uiLeather" value="0" checked/>
+                <label for="radio-leather-no">No</label>
+            </div>
+    
+
+
+
+        </form>
+
+        <button class="submit" onclick="onClickedEstimatePrice()" type="button">Estimate Price</button>
+        <div id="uiEstimatedPrice" class="result">	<h2></h2> </div>
+    </div>
+</body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="app.js"></script>
+</html>
