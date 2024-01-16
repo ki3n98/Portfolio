@@ -42,7 +42,7 @@ function onClickedEstimatePrice() {
         airbags: airbags, 
         age: age
     }, function (data, status) {
-        console.log(data.estimated_price); 
+        console.log('est price: ' + data.estimated_price); 
         estPrice.innerHTML = "<h2>$" + data.estimated_price.toString() + "</h2>"; 
     });
 
