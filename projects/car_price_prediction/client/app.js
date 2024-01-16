@@ -31,7 +31,7 @@ function onClickedEstimatePrice() {
         age + ' ' + 
         airbags + ' '
     )
-    var url = 'http://127.0.0.1:5000/predict_car_price'; 
+    var url = '/api/predict_car_price'; 
     $.post(url, {
         levy: levy, 
         manufacture: manufacturer,
@@ -52,14 +52,14 @@ function onClickedEstimatePrice() {
 //When page load
 function onPageLoad(){
     console.log('document loaded');
-
-    var manufacturer_url = 'http://127.0.0.1:5000/get_manufacturer_name';
+    
+    var manufacturer_url = '/api/get_manufacturer_name';
     generateOption(manufacturer_url,'#uiManufacturer'); 
 
-    var category_url = 'http://127.0.0.1:5000/get_category';
+    var category_url = '/api/get_category';
     generateOption(category_url,'#uiCategory'); 
 
-    var gearbox_url = 'http://127.0.0.1:5000/get_gearbox';
+    var gearbox_url = '/api/get_gearbox';
     generateOption(gearbox_url,'#uiGearbox'); 
 
 }
