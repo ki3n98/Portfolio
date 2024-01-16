@@ -31,7 +31,7 @@ function onClickedEstimatePrice() {
         age + ' ' + 
         airbags + ' '
     )
-    var url = '/api/predict_car_price'; 
+    var url = 'https://ki3n98.pythonanywhere.com/predict_car_price'; 
     $.post(url, {
         levy: levy, 
         manufacture: manufacturer,
@@ -53,13 +53,13 @@ function onClickedEstimatePrice() {
 function onPageLoad(){
     console.log('document loaded');
     
-    var manufacturer_url = '/api/get_manufacturer_name';
+    var manufacturer_url = 'https://ki3n98.pythonanywhere.com/get_manufacturer_name';
     generateOption(manufacturer_url,'#uiManufacturer'); 
 
-    var category_url = '/api/get_category';
+    var category_url = 'https://ki3n98.pythonanywhere.com/get_category';
     generateOption(category_url,'#uiCategory'); 
 
-    var gearbox_url = '/api/get_gearbox';
+    var gearbox_url = 'https://ki3n98.pythonanywhere.com/get_gearbox';
     generateOption(gearbox_url,'#uiGearbox'); 
 
 }
