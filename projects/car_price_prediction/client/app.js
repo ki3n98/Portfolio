@@ -10,42 +10,48 @@ function getRadioValueByName(name) {
 
 function onClickedEstimatePrice() {
     console.log('Estimate price button clicked.'); 
-    var levy = 1500; 
-    var leather = getRadioValueByName('uiLeather'); 
-    var manufacturer = document.getElementById('uiManufacturer').value; 
-    var category = document.getElementById('uiCategory').value; 
-    var gearbox = document.getElementById('uiGearbox').value; 
-    var mileage = document.getElementById('uiMileage').value; 
-    var age = document.getElementById('uiAge').value; 
-    var airbags = document.getElementById('uiAirbag').value; 
+    var levy_in = 1500; 
+    var leather_in = getRadioValueByName('uiLeather'); 
+    var manufacturer_in = document.getElementById('uiManufacturer').value; 
+    var category_in = document.getElementById('uiCategory').value; 
+    var gearbox_in = document.getElementById('uiGearbox').value; 
+    var age_in = document.getElementById('uiAge').value; 
+    var airbags_in = document.getElementById('uiAirbag').value; 
+
+    var mileage_in = document.getElementById('uiMileage').value; 
+    mileage_in = milesToKm(mileage_in); 
 
     var estPrice = document.getElementById('uiEstimatedPrice')
 
     console.log(
-        levy + ' ' +
-        leather + ' ' + 
-        manufacturer + ' ' + 
-        category + ' ' + 
-        gearbox + ' ' + 
-        mileage + ' ' + 
-        age + ' ' + 
-        airbags + ' '
+        levy_in + ' ' +
+        leather_in + ' ' + 
+        manufacturer_in + ' ' + 
+        category_in + ' ' + 
+        gearbox_in + ' ' + 
+        mileage_in + ' ' + 
+        age_in + ' ' + 
+        airbags_in + ' '
     )
     var url = 'https://ki3n98.pythonanywhere.com/predict_car_price'; 
     $.post(url, {
-        levy: levy, 
-        manufacture: manufacturer,
-        category: category,
-        leather_interior: leather, 
-        mileage: mileage, 
-        gear_box: gearbox, 
-        airbags: airbags, 
-        age: age
+        levy: levy_in, 
+        manufacture: manufacturer_in,
+        category: category_in,
+        leather_interior: leather_in, 
+        mileage: mileage_in, 
+        gear_box: gearbox_in, 
+        airbags: airbags_in, 
+        age: age_in
     }, function (data, status) {
         console.log('est price: ' + data.estimated_price); 
         estPrice.innerHTML = "<h2>$" + data.estimated_price.toString() + "</h2>"; 
     });
 
+}
+
+function milesToKm(miles) {
+    return miles * 1.609347; 
 }
 
 
